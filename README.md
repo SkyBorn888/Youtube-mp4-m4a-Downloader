@@ -2,7 +2,7 @@
 
 
 
-##　概要
+## 概要
 yt-dlp、kivyを使ったYoutubeのmp4とm4aのダウンローダー。
 ffmpegコマンドを使って mp4 m4a を結合する。
 
