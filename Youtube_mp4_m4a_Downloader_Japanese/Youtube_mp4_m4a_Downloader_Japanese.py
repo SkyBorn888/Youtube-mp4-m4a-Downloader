@@ -10,6 +10,7 @@ from kivy.uix.scrollview import ScrollView
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.popup import Popup
 from kivy.utils import get_color_from_hex
+import japanize_kivy   
 
 import yt_dlp
 
@@ -17,17 +18,19 @@ class Youtube_mp4_m4a_Downloader(App):
     def build(self):
         self.youtube_url = ""
 
+        self.icon = 'img/downloader_icon.jpg'
+
         # レイアウトを作成
         main_layout = BoxLayout(orientation='vertical', spacing=10, padding=10)
 
         # タイトル部分
-        title_label = Label(text="YouTube mp4 m4a Downloader", font_size='24sp', halign='center', size_hint=(1, None), height=60)
+        title_label = Label(text="Youtube mp4 m4a ダウンローダー", font_size='24sp', halign='center', size_hint=(1, None), height=60)
         main_layout.add_widget(title_label)
 
         # YouTube URL 入力と "Fetch Video Info" ボタン部分
         input_layout = BoxLayout(orientation='horizontal', spacing=10, size_hint=(1, None), height=40)
-        self.url_input = TextInput(hint_text="Enter YouTube URL", multiline=False, padding_x=(10, 0), padding_y=[15, 0])  # 左詰めの幅設定と上下中央寄せ
-        fetch_button = Button(text="Fetch Video Info", size_hint=(None, None), size=(160, 40))
+        self.url_input = TextInput(hint_text="YouTube の URL を入力してください", multiline=False, padding_x=(10, 0), padding_y=[15, 0])  # 左詰めの幅設定と上下中央寄せ
+        fetch_button = Button(text="ビデオ情報を取得", size_hint=(None, None), size=(160, 40))
         fetch_button.bind(on_press=self.fetch_video_info)
         input_layout.add_widget(self.url_input)
         input_layout.add_widget(fetch_button)
@@ -36,7 +39,7 @@ class Youtube_mp4_m4a_Downloader(App):
 
         # 見出し行を作成
         headers_layout = GridLayout(cols=6, spacing=10, size_hint=(1, None), height=40)
-        headers = ["Format ID", "Extension", "Resolution", "Protocol", "Video Codec", "Aspect Ratio"]
+        headers = ["フォーマット ID", "拡張子", "解像度", "プロトコル", "ビデオコーデック", "アスペクト比"]
         for header in headers:
             header_label = Label(text=header, halign='left')
             headers_layout.add_widget(header_label)
@@ -53,8 +56,8 @@ class Youtube_mp4_m4a_Downloader(App):
 
         # フォーマットID入力と "Download Selected Format" ボタン部分
         download_layout = BoxLayout(orientation='horizontal', spacing=10, size_hint=(1, None), height=40)
-        self.id_input = TextInput(hint_text="Enter Format ID", multiline=False, padding_x=(10, 0), padding_y=[15, 0])  # 左詰めの幅設定と上下中央寄せ
-        download_button = Button(text="Download Selected Format", size_hint=(None, None), size=(220, 40))
+        self.id_input = TextInput(hint_text="フォーマット ID を入力してください", multiline=False, padding_x=(10, 0), padding_y=[15, 0])  # 左詰めの幅設定と上下中央寄せ
+        download_button = Button(text="ダウンロード", size_hint=(None, None), size=(220, 40))
         download_button.bind(on_press=self.download_video)
         download_layout.add_widget(self.id_input)
         download_layout.add_widget(download_button)
@@ -95,11 +98,11 @@ class Youtube_mp4_m4a_Downloader(App):
                         self.video_info_table.add_widget(aspect_ratio)
                 except yt_dlp.utils.DownloadError as e:
                     self.video_info_table.clear_widgets()
-                    error_label = Label(text=f"Error: {str(e)}", halign='center')
+                    error_label = Label(text=f"エラー: {str(e)}", halign='center')
                     self.video_info_table.add_widget(error_label)
         else:
             self.video_info_table.clear_widgets()
-            info_label = Label(text="Please enter a YouTube URL.", halign='center')
+            info_label = Label(text="YouTube の URL を入力してください", halign='center')
             self.video_info_table.add_widget(info_label)
 
     def download_video(self, instance):
@@ -121,15 +124,15 @@ class Youtube_mp4_m4a_Downloader(App):
                                     ydl_download_start.download([self.youtube_url])
                                     self.show_download_complete()
                                 except yt_dlp.utils.DownloadError as e:
-                                    self.id_input.text = f"Download error: {str(e)}"
+                                    self.id_input.text = f"ダウンロードエラー: {str(e)}"
                                 return
-            self.id_input.text = "Format not found."
+            self.id_input.text = "フォーマットが見つかりません。"
 
     def show_download_complete(self):
         content = BoxLayout(orientation='vertical', spacing=10)
-        content.add_widget(Label(text="Download Complete!"))
+        content.add_widget(Label(text="ダウンロード完了!"))
 
-        popup = Popup(title='Download Complete', content=content, size_hint=(None, None), size=(400, 200))
+        popup = Popup(title='通知', content=content, size_hint=(None, None), size=(400, 200))
         popup.open()
 
 if __name__ == '__main__':

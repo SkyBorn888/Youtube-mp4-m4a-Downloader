@@ -15,6 +15,8 @@ class VideoMergerApp(App):
         self.input_mp4 = None
         self.input_m4a = None
 
+        self.icon = 'img/merge_icon.jpg'
+
         layout = GridLayout(rows=8, cols=1, spacing=10, padding=10)
 
         ######
