@@ -17,3 +17,8 @@ fonts==https://moji.or.jp/ipafont/ipaex00401/
 
 ## テスト済み環境
 Windows11
+
+## pyinstaller 実行コマンド
+```sh
+pyinstaller --onefile --noconsole --icon=img/icon name.ico .\hogehoge.py
+```
