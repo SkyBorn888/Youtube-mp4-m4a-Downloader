@@ -10,6 +10,9 @@ import subprocess
 from kivy.graphics import Color, Rectangle
 import japanize_kivy
 
+### 日本語の文字化け対策
+japanize_kivy.mode_on()
+
 class VideoMergerApp(App):
     def build(self):
         self.input_mp4 = None

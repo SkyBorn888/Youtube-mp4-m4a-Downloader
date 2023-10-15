@@ -10,9 +10,13 @@ from kivy.uix.scrollview import ScrollView
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.popup import Popup
 from kivy.utils import get_color_from_hex
-import japanize_kivy   
 
 import yt_dlp
+
+import japanize_kivy
+
+### 日本語の文字化け対策
+japanize_kivy.mode_on()
 
 class Youtube_mp4_m4a_Downloader(App):
     def build(self):
