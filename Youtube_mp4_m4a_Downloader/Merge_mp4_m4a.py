@@ -8,15 +8,6 @@ from kivy.uix.popup import Popup
 from datetime import datetime
 import subprocess
 from kivy.graphics import Color, Rectangle
-from kivy.resources import resource_add_path
-from kivy.core.text import LabelBase
-from kivy.core.text import DEFAULT_FONT
-
-#import pathlib
-#RESOURCE_PATH = pathlib.Path(__file__).parent / 'resources/ipaexg00401'
-## 日本語対応フォントを使用
-resource_add_path("resouces/ipaexg00401")
-LabelBase.register(DEFAULT_FONT, 'ipaexg.ttf')
 
 class VideoMergerApp(App):
     def build(self):
