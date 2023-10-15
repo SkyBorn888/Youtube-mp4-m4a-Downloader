@@ -13,6 +13,7 @@ japanize-kivy==0.1.1
 yt-dlp==2023.10.13
 pyinstaller==5.6.2
 ffmpeg==ffmpeg-master-latest-win64-gpl-shared
+fonts==https://moji.or.jp/ipafont/ipaex00401/
 
 ## テスト済み環境
 Windows11
