@@ -18,7 +18,7 @@ from kivy.core.text import DEFAULT_FONT
 resource_add_path("resouces/ipaexg00401")
 LabelBase.register(DEFAULT_FONT, 'ipaexg.ttf')
 
-class VideoMergerApp(App):
+class VideoMergerApp_Japanese(App):
     def build(self):
         self.input_mp4 = None
         self.input_m4a = None
@@ -130,4 +130,4 @@ class VideoMergerApp(App):
 
 
 if __name__ == "__main__":
-    VideoMergerApp().run()
+    VideoMergerApp_Japanese().run()
