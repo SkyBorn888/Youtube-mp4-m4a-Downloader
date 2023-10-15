@@ -22,3 +22,6 @@ Windows11
 ```sh
 pyinstaller --onefile --noconsole --icon=img/icon name.ico .\hogehoge.py
 ```
+## 前提条件
+ffmepgをインストールする必要がある。
+https://www.ffmpeg.org/
