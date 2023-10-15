@@ -23,7 +23,7 @@ from kivy.core.text import DEFAULT_FONT
 resource_add_path("resouces/ipaexg00401")
 LabelBase.register(DEFAULT_FONT, 'ipaexg.ttf')
 
-class Youtube_mp4_m4a_Downloader(App):
+class Youtube_mp4_m4a_Downloader_Japanese(App):
     def build(self):
         self.youtube_url = ""
 
@@ -145,4 +145,4 @@ class Youtube_mp4_m4a_Downloader(App):
         popup.open()
 
 if __name__ == '__main__':
-    Youtube_mp4_m4a_Downloader().run()
+    Youtube_mp4_m4a_Downloader_Japanese().run()
