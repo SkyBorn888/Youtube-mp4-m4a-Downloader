@@ -8,14 +8,23 @@ from kivy.uix.popup import Popup
 from datetime import datetime
 import subprocess
 from kivy.graphics import Color, Rectangle
+from kivy.resources import resource_add_path
+from kivy.core.text import LabelBase
+from kivy.core.text import DEFAULT_FONT
 
-class VideoMergerApp(App):
+#import pathlib
+#RESOURCE_PATH = pathlib.Path(__file__).parent / 'resources/ipaexg00401'
+## 日本語対応フォントを使用
+resource_add_path("resouces/ipaexg00401")
+LabelBase.register(DEFAULT_FONT, 'ipaexg.ttf')
+
+class VideoMergerApp_Japanese(App):
     def build(self):
         self.input_mp4 = None
         self.input_m4a = None
 
         self.icon = 'img/merge_icon.jpg'
-
+        
         layout = GridLayout(rows=8, cols=1, spacing=10, padding=10)
 
         ######
@@ -66,9 +75,9 @@ class VideoMergerApp(App):
         ############
 
 
-        mp4_label = Label(text="Select mp4 file:", size_hint_y=None, height=30)
+        mp4_label = Label(text="mp4ファイルを選択してください。", size_hint_y=None, height=30)
         mp4_label.border = (1, 1, 1, 1)
-        m4a_label = Label(text="Select m4a file:", size_hint_y=None, height=30)
+        m4a_label = Label(text="m4aファイルを選択してください。", size_hint_y=None, height=30)
         m4a_label.border = (1, 1, 1, 1)
 
         self.status_label = Label(text="")
@@ -79,7 +88,7 @@ class VideoMergerApp(App):
         layout.add_widget(file_chooser_m4a_scroll)
 
         merge_button = Button(
-            text="Merge mp4 and m4a", on_press=self.merge_video_and_audio, size_hint_y=None, height=40
+            text="mp4ファイルとm4aファイルを結合", on_press=self.merge_video_and_audio, size_hint_y=None, height=40
         )
         layout.add_widget(merge_button)
 
@@ -105,12 +114,12 @@ class VideoMergerApp(App):
             ]
             subprocess.run(ffmpeg_command)
 
-            self.status_label.text = f"Merge complete. Output: {output_file}"
+            self.status_label.text = f"ファイルの結合が完了しました。 結合ファイルの出力先: {output_file}"
 
-            popup = Popup(title="Merge Complete", content=Label(text=f"Output: {output_file}"), size_hint=(1, 0.2),  size=(50, 50))
+            popup = Popup(title="通知", content=Label(text=f"ファイルの結合が完了しました。結合ファイルの出力先: {output_file}"), size_hint=(1, 0.2),  size=(50, 50))
             popup.open()
         else:
-            self.status_label.text = "Please select both mp4 and m4a files."
+            self.status_label.text = "mp4ファイルとm4aファイル両方選択してください。"
 
     def update_rect(self, instance, value):
         self.file_chooser_mp4_rect.pos = instance.pos
@@ -121,4 +130,4 @@ class VideoMergerApp(App):
 
 
 if __name__ == "__main__":
-    VideoMergerApp().run()
+    VideoMergerApp_Japanese().run()
