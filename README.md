@@ -1,8 +1,6 @@
 # Youtube-mp4-m4a-Downloader
-<img src="https://github.com/SkyBorn888/Youtube-mp4-m4a-Downloader/assets/79365546/8c0fef49-2105-4898-ade9-0169b3a59a99" width=45%>
-<img src="https://github.com/SkyBorn888/Youtube-mp4-m4a-Downloader/assets/79365546/24f4e4b0-1c73-40d9-b2fd-8cf7c67822c3" width=45%>
-
-
+<img src="https://github.com/SkyBorn888/Youtube-mp4-m4a-Downloader/assets/79365546/f744f035-ed6e-4385-addc-170319fd29fc" width=45%>
+<img src="https://github.com/SkyBorn888/Youtube-mp4-m4a-Downloader/assets/79365546/0514ddae-dd53-4210-8c05-b81acd952b61" width=45%>
 
 ## 概要
 yt-dlp、kivyを使ったYoutubeのmp4とm4aのダウンローダー。
@@ -20,8 +18,14 @@ fonts==https://moji.or.jp/ipafont/ipaex00401/
 ## テスト済み環境
 Windows11
 
-## ツリー
+## 前提条件
+ffmepgをインストールする必要がある。
+https://www.ffmpeg.org/
 
+## 使い方！？ 
+気が向いたら書く、バグも多いし。ケっ！
+
+## ツリー
 Youtube_mp4_m4a_Downloader<br>
 ├ downloads 【ダウンロードした mp4 又は m4a が置かれる】<br>
 │ └ dummy.txt 【特に意味なし 消しても良い】<br>
@@ -33,7 +37,7 @@ Youtube_mp4_m4a_Downloader<br>
 ├ merged　【mp4とm4aを結合した mp4 が置かれる】<br>
 │ └ dummy.txt 【特に意味なし 消しても良い】<br>
 ├ resouces　【】使用しているフォントを配置<br>
-│ └ 【ipaexg00401】
+│ └ 【ipaexg00401】<br>
 │ 　 ├ IPA_Font_License_Agreement_v1.0.txt<br>
 │ 　 ├ ipaexg.ttf<br>
 │ 　 └ Readme_ipaexg00401.txt<br>
@@ -44,6 +48,3 @@ Youtube_mp4_m4a_Downloader<br>
 ```sh
 pyinstaller --onefile --noconsole --hiddenimport win32timezone --icon=img/icon name.ico .\hogehoge.py
 ```
-## 前提条件
-ffmepgをインストールする必要がある。
-https://www.ffmpeg.org/
